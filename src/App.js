@@ -63,7 +63,7 @@ import classyPic from "./images/peter/classy.jpg";
 import chibiPic from "./images/peter/chibi.jpg";
 import runningPic from "./images/peter/running.jpg";
 
-import whichPeterLogo from "./images/logo.jpg"
+import whichPeterLogo from "./images/logo.png"
 
 
 import './App.css';
