@@ -62,6 +62,7 @@ import dancingPic from "./images/peter/dancing.jpg";
 import classyPic from "./images/peter/classy.jpg";
 import chibiPic from "./images/peter/chibi.jpg";
 import runningPic from "./images/peter/running.jpg";
+import trollPic from "./images/peter/troll.png"
 
 import whichPeterLogo from "./images/logo.png"
 
@@ -220,6 +221,11 @@ function App() {
     }
     
     function updateScore() {
+        
+        if (currentAnswer < 0 || currentAnswer > 4) {
+            displayError();
+            return;
+        }
         questions[currentQuestion].answerOptions[currentAnswer].associatedPeters.map((peter, index) => {
             if (peter == "Classy") {
                 const newClassy = classy+1;
@@ -270,10 +276,6 @@ function App() {
     }
     
     function goForwards() {
-        if (currentAnswer < 0 || currentAnswer > 4) {
-            displayError();
-            return;
-        }
         updateScore()
         const newCurrentQuestion = currentQuestion + 1;
         const newAnswer = -1;
@@ -377,6 +379,19 @@ function App() {
             console.log(classy);
             console.log(chibi);
             console.log(running);
+            
+            if (joe + rollerblade + dealership + dancing + classy + chibi + running == 0) {
+                return (
+                <div>
+                    <p></p>
+                <img  class="bigImg" src={trollPic}></img>
+                <div className='navigation'>
+                    <button onClick={() => restart()}>Try Again</button>
+                </div>
+                </div>
+                );
+            }
+        
             if (joe >= joe && joe >= rollerblade && joe >= dealership && joe >= dancing && joe >= classy && joe >= chibi && joe >= running) {
                 return (
                 <div>
@@ -475,7 +490,7 @@ function App() {
                 </div>
                 </div>
                 );
-            }
+            } 
         }
     
     function renderApp() {

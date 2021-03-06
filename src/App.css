@@ -37,6 +37,11 @@
   }
 }
 
+.bigImg {
+    width: 50%;
+    height: 50%;
+}
+
 img {
     width: 25%;
     height: 25%;
